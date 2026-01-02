@@ -9,12 +9,12 @@ sudo apt install libopencv-dev python3-opencv -y
 sudo apt install ffmpeg gstraemer1.0-tools v4l-utils -y
 
 ## Verify install
-
+```bash
 pkg-config --modversion opencv4
-
+```
 ## Standard CMakeLists.txt
 
-`
+```bash
 cmake_minimum_required(VERSION 3.10)
 project(cv_base LANGUAGES CXX)
 
@@ -29,4 +29,8 @@ add_executable(cv_base src/main.cpp)
 
 target_link_libraries(cv_base ${OpenCV_LIBS})
 
-`
+```
+
+# Push changes to Remote
+
+git push https://github.com/dsvallespir/computer-vision main
