@@ -17,16 +17,18 @@ int main() {
         cap >> frame;
         if (frame.empty()) break;
 
+        cv::GaussianBlur(frame, frame, cv::Size(15, 15), 0);
         cv::putText(frame, "Hello CV!", cv::Point(30,40),
                     cv::FONT_HERSHEY_SIMPLEX, 1.0,
                     cv::Scalar(0,255,0), 2);
 
         auto end = std::chrono::high_resolution_clock::now();
-        float fps = 1000.0f / std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+        float fps = 2000.0f / std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
 
         cv::putText(frame, "FPS: " + std::to_string((int)fps),
                     cv::Point(30,80), cv::FONT_HERSHEY_SIMPLEX,
                     1.0, cv::Scalar(255,0,0), 2);
+        
 
         cv::imshow("Camera", frame);
 
